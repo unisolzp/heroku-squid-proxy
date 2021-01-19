@@ -1,2 +1,2 @@
 #!/bin/sh
-exec $(which squid) -NYCd 1
+( socat tcp-listen:$PORT,reuseaddr,fork tcp:localhost:3129 ) & exec $(which squid) -NYCd 1
